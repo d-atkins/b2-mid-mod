@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe 'from the index page' do
+  describe 'from the studios index page' do
     it 'I see a list of all of the movie studios and their movies' do
       studio_1 = Studio.create!(name: "Sweet Films")
       studio_2 = Studio.create!(name: "Okay Films")
