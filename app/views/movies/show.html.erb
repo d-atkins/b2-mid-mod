@@ -1,0 +1,9 @@
+<section id='name'><h1><%= @movie.name %></h1></section>
+<section id='creation_year'><p>Creation year: <%= @movie.creation_year %></p></section>
+<section id='genre'><p>Genre: <%= @movie.genre %></p></section>
+<section id='actors'>
+  <% @movie.actors_by_age.each do |actor| %>
+    <%= "#{actor.name} " %>
+  <% end %>
+</section>
+<section id='average_age'>Average age of all actors: <%= @movie.average_age_of_actors %></section>
