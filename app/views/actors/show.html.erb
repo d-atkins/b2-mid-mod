@@ -8,12 +8,13 @@
   <% end %>
 </section>
 <section id='worked_with'>
-  <p><%= @actor.name %> has worked with </p>
-  <% @actor.worked_with.each do |actor| %>
-    <% if actor != @actor.worked_with.last %>
-      <%= "#{actor.name}," %>
+  <p><%= @actor.name %> has worked with
+  <% @actor.worked_with.each do |name| %>
+    <% if name != @actor.worked_with.last %>
+      <%= "#{name}," %>
     <% else %>
-      <%= "and #{actor.name}" %>
+      <%= "and #{name}" %>
     <% end %>
   <% end %>
+  </p>
 </section>
