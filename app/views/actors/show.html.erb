@@ -1,0 +1,9 @@
+<section id='name'><h1><%= @actor.name %></h1></section>
+<section id='age'><p>Age: <%= @actor.age %></p></section>
+<section id='movies'>
+  <p></p>
+  <h3><%= "Movies #{@actor.name} was in:" %></h3>
+  <% @actor.movies.each do |movie| %>
+    <p><%= movie.name %></p>
+  <% end %>
+</section>
