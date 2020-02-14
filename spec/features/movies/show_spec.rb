@@ -16,10 +16,10 @@ RSpec.describe 'As a visitor' do
       actor_4 = Actor.create!(name: 'Aurora Ziobrowski', age: 36)
       actor_1.movies << [movie_1, movie_2, movie_3, movie_4, movie_5]
       movie_1.actors << [actor_2, actor_3, actor_4]
-      
+
       visit "/movies/#{movie_1.id}"
 
-      within('#name') { expect(page)
+      within('#movie_name') { expect(page)
         .to have_content(movie_1.name) }
 
       within('#creation_year') { expect(page)
