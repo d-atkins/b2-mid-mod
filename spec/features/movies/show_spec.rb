@@ -17,7 +17,6 @@ RSpec.describe 'As a visitor' do
       actor_1.movies << [movie_1, movie_2, movie_3, movie_4, movie_5]
       movie_1.actors << [actor_2, actor_3, actor_4]
 
-      expected_order = "#{actor_2.name} #{actor_1.name} #{actor_4.name} #{actor_3.name}"
 
       visit "/movies/#{movie_1.id}"
 
@@ -30,9 +29,10 @@ RSpec.describe 'As a visitor' do
       within('#genre') { expect(page)
         .to have_content("Genre: #{movie_1.genre}") }
 
+      expected = "#{actor_2.name}, #{actor_1.name}, #{actor_4.name}, and #{actor_3.name}"
+      
       within('#actors') do
-        expect(page).to have_content("Starring:")
-        expect(page).to have_content(expected_order)
+        expect(page).to have_content("Starring #{expected}")
       end
 
       within('#average_age') do
