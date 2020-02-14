@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+MovieActor.destroy_all
+Actor.destroy_all
 Movie.destroy_all
 Studio.destroy_all
 studio_1 = Studio.create!(name: "Sweet Films")
@@ -14,3 +16,5 @@ movie_2 = Movie.create!(name: 'Legend of Sal', creation_year: 1976, genre: 'acti
 movie_3 = Movie.create!(name: 'Dark Side of the Code', creation_year: 2000, genre: 'suspense', studio: studio_2)
 movie_4 = Movie.create!(name: 'Limes', creation_year: 2002, genre: 'educational', studio: studio_2)
 movie_5 = Movie.create!(name: 'Runnin Out of Ideas', creation_year: 1989, genre: 'inspiring', studio: studio_2)
+actor_1 = Actor.create!(name: 'Mike Dao', age: 22)
+actor_1.movies << [movie_1, movie_2, movie_3, movie_4, movie_5]
