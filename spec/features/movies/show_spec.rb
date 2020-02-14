@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe 'from the actors show page' do
-    it "I see the actor's information and the movies they were in" do
+  describe 'from the movie show page' do
+    it "I see the movies information, the actors it starred, and their average age" do
       studio_1 = Studio.create!(name: "Sweet Films")
       studio_2 = Studio.create!(name: "Okay Films")
       movie_1 = Movie.create!(name: 'Rails is Great', creation_year: 2020, genre: 'satire', studio: studio_1)
@@ -16,8 +16,7 @@ RSpec.describe 'As a visitor' do
       actor_4 = Actor.create!(name: 'Aurora Ziobrowski', age: 36)
       actor_1.movies << [movie_1, movie_2, movie_3, movie_4, movie_5]
       movie_1.actors << [actor_2, actor_3, actor_4]
-
-
+      
       visit "/movies/#{movie_1.id}"
 
       within('#name') { expect(page)
@@ -30,7 +29,7 @@ RSpec.describe 'As a visitor' do
         .to have_content("Genre: #{movie_1.genre}") }
 
       expected = "#{actor_2.name}, #{actor_1.name}, #{actor_4.name}, and #{actor_3.name}"
-      
+
       within('#actors') do
         expect(page).to have_content("Starring #{expected}")
       end
