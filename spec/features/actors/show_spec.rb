@@ -50,14 +50,13 @@ RSpec.describe 'As a visitor' do
       movie_5.actors << [actor_2, actor_3]
       movie_6.actors << [actor_2, actor_3, actor_4, actor_5]
 
-      expected = "#{actor_2}, and #{actor_3}"
+      expected = "#{actor_2.name}, and #{actor_3.name}"
+
+      visit "/actors/#{actor_1.id}"
 
       within('#worked_with') do
         expect(page).to have_content("#{actor_1.name} has worked with #{expected}")
       end
-
-
-
     end
   end
 end
