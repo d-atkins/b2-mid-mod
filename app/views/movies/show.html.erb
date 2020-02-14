@@ -12,7 +12,7 @@
   <% end %>
   </p>
 </section>
-<section id='average_age'>Average age of all actors: <%= @movie.average_age_of_actors %></section>
+<section id='average_age'>Average age of all actors: <%= @movie.average_age_of_actors.round(2) %></section>
 <section id='new_actor_form'>
   <h3>Add an actor to this movie</h3>
   <%= form_tag("/movie_actors/#{@movie.id}") do %>
