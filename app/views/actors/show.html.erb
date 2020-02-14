@@ -7,3 +7,13 @@
     <p><%= movie.name %></p>
   <% end %>
 </section>
+<section id='worked_with'>
+  <p><%= @actor.name %> has worked with </p>
+  <% @actor.worked_with.each do |actor| %>
+    <% if actor != @actor.worked_with.last %>
+      <%= "#{actor.name}," %>
+    <% else %>
+      <%= "and #{actor.name}" %>
+    <% end %>
+  <% end %>
+</section>
