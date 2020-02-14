@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSPec.describe Movie, type: :model do
+RSpec.describe Movie, type: :model do
 
   describe "validations" do
     it {should validate_presence_of :name}

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSPec.describe Actor, type: :model do
+RSpec.describe Actor, type: :model do
 
   describe "validations" do
     it {should validate_presence_of :name}
