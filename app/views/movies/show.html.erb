@@ -2,8 +2,14 @@
 <section id='creation_year'><p>Creation year: <%= @movie.creation_year %></p></section>
 <section id='genre'><p>Genre: <%= @movie.genre %></p></section>
 <section id='actors'>
+  <p>Starring 
   <% @movie.actors_by_age.each do |actor| %>
-    <%= "#{actor.name} " %>
+    <% if actor != @movie.actors_by_age.last %>
+      <%= "#{actor.name}," %>
+    <% else %>
+      <%= "and #{actor.name}" %>
+    <% end %>
   <% end %>
+  </p>
 </section>
 <section id='average_age'>Average age of all actors: <%= @movie.average_age_of_actors %></section>
