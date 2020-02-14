@@ -7,6 +7,6 @@ RSPec.describe Studio, type: :model do
   end
 
   describe "relationships" do
-
+    it {should have_many :movies}
   end
 end
